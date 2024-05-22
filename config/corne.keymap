@@ -126,6 +126,36 @@
 
     conditional_layers { compatible = "zmk,conditional-layers"; };
 
+    macros {
+        zoomin: aaa {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_COMMAND &kp PLUS>;
+            label = "ass";
+        };
+
+        zoomout: zoomout {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_COMMAND &kp MINUS>;
+            label = "ZOOMOUT";
+        };
+
+        tabf: tabf {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_COMMAND &kp RIGHT_BRACKET>;
+            label = "TABF";
+        };
+
+        tabb: tabb {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_COMMAND &kp LEFT_BRACKET>;
+            label = "TABB";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -140,9 +170,9 @@
 
         numsym_layer {
             bindings = <
-&trans  &kp DOUBLE_QUOTES  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp N5          &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp LEFT_BRACE  &kp RIGHT_BRACE  &trans        &trans
+&trans  &kp DOUBLE_QUOTES  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp PLUS        &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp LEFT_BRACE  &kp RIGHT_BRACE  &trans        &trans
 &trans  &kp TILDE          &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp NUMBER_0    &kp LEFT          &kp DOWN           &kp UP          &kp RIGHT        &kp ASTERISK  &trans
-&trans  &kp SINGLE_QUOTE   &kp N7        &kp N8        &kp N9        &kp BSLH        &kp LESS_THAN     &kp GREATER_THAN   &kp MINUS       &kp EQUAL        &kp SLASH     &trans
+&trans  &kp SINGLE_QUOTE   &kp N7        &kp N8        &kp N9        &kp MINUS       &kp LESS_THAN     &kp GREATER_THAN   &kp MINUS       &kp EQUAL        &kp SLASH     &trans
                                          &trans        &trans        &trans          &trans            &trans             &trans
             >;
         };
@@ -158,10 +188,10 @@
 
         sys_layer {
             bindings = <
-&trans  &trans        &trans        &bt BT_PRV    &bt BT_NXT    &trans            &none   &trans  &trans  &trans  &trans  &trans
-&trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4      &trans  &none   &none   &none   &none   &trans
-&trans  &bootloader   &sys_reset    &none         &bt BT_CLR    &bt BT_CLR_ALL    &none   &trans  &trans  &trans  &trans  &trans
-                                    &trans        &trans        &trans            &trans  &trans  &trans
+&trans  &trans        &trans        &bt BT_PRV    &bt BT_NXT    &trans            &zoomout  &zoomin  &trans  &trans  &trans  &trans
+&trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4      &tabb     &tabf    &none   &none   &none   &trans
+&trans  &bootloader   &sys_reset    &none         &bt BT_CLR    &bt BT_CLR_ALL    &none     &trans   &trans  &trans  &trans  &trans
+                                    &trans        &trans        &trans            &trans    &trans   &trans
             >;
         };
     };
