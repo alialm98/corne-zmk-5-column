@@ -142,6 +142,46 @@
             bindings = <&tabf>;
             key-positions = <31 19>;
         };
+
+        saves {
+            bindings = <&save>;
+            key-positions = <26 14>;
+        };
+
+        copies {
+            bindings = <&copy>;
+            key-positions = <27 15>;
+        };
+
+        pastes {
+            bindings = <&paste>;
+            key-positions = <28 16>;
+        };
+
+        wordl {
+            bindings = <&wordl>;
+            key-positions = <18 19>;
+        };
+
+        wordr {
+            bindings = <&wordr>;
+            key-positions = <19 20>;
+        };
+
+        undere {
+            bindings = <&underline>;
+            key-positions = <27 28>;
+        };
+
+        bold {
+            bindings = <&bold>;
+            key-positions = <4 3>;
+        };
+
+        strike {
+            bindings = <&strike>;
+            key-positions = <15 16>;
+        };
     };
 
     conditional_layers { compatible = "zmk,conditional-layers"; };
@@ -271,6 +311,48 @@
                 <&kp LEFT_SHIFT &kp LEFT_ALT>;
 
             label = "WORDR";
+        };
+
+        copy: copy {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_COMMAND>,
+                <&macro_tap>,
+                <&kp C>,
+                <&macro_release>,
+                <&kp LEFT_COMMAND>;
+
+            label = "COPY";
+        };
+
+        paste: paste {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_COMMAND>,
+                <&macro_tap>,
+                <&kp V>,
+                <&macro_release>,
+                <&kp LEFT_COMMAND>;
+
+            label = "PASTE";
+        };
+
+        save: save {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_COMMAND>,
+                <&macro_tap>,
+                <&kp S>,
+                <&macro_release>,
+                <&kp LEFT_COMMAND>;
+
+            label = "SAVE";
         };
     };
 
