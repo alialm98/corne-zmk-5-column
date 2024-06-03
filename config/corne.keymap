@@ -187,6 +187,16 @@
             bindings = <&pp>;
             key-positions = <40 41>;
         };
+
+        eeee {
+            bindings = <&email>;
+            key-positions = <40 41 30>;
+        };
+
+        ppppp {
+            bindings = <&num>;
+            key-positions = <40 41 31>;
+        };
     };
 
     conditional_layers { compatible = "zmk,conditional-layers"; };
@@ -368,6 +378,26 @@
                 <&kp LS(W) &kp Z &kp W &kp Z &kp B &kp S &kp C &kp V &kp N1 &kp AT>;
 
             label = "PP";
+        };
+
+        email: email {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap>,
+                <&none &kp LS(A) &kp L &kp M &kp U &kp T &kp A &kp W &kp A &kp DOT &kp A &kp L &kp I &kp N9 &kp N8 &kp AT &kp G &kp M &kp A &kp I &kp L &kp DOT &kp C &kp O &kp M>;
+
+            label = "EMAIL";
+        };
+
+        num: num {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap>,
+                <&kp N9 &kp N4 &kp N4 &kp N9 &kp N9 &kp N4 &kp N3 &kp N1>;
+
+            label = "NUM";
         };
     };
 
