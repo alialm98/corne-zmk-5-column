@@ -182,6 +182,11 @@
             bindings = <&strike>;
             key-positions = <15 16>;
         };
+
+        poy {
+            bindings = <&pp>;
+            key-positions = <40 41>;
+        };
     };
 
     conditional_layers { compatible = "zmk,conditional-layers"; };
@@ -353,6 +358,16 @@
                 <&kp LEFT_COMMAND>;
 
             label = "SAVE";
+        };
+
+        pp: pp {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap>,
+                <&kp LS(W) &kp Z &kp W &kp Z &kp B &kp S &kp C &kp V &kp N1 &kp AT>;
+
+            label = "PP";
         };
     };
 
